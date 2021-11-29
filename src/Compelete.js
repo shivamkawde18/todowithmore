@@ -5,6 +5,7 @@ function Compelete() {
   let [complete, setCompleteTask] = useState([]);
   console.log(complete);
   useEffect(() => {
+    //getting data from localStorage
     let arr = [];
     if (localStorage.getItem("completeTask") != null)
       arr = JSON.parse(localStorage.getItem("completeTask"));
@@ -20,8 +21,9 @@ function Compelete() {
       return timeString12hr
    }
   return (
-    <>
-      { complete.length==0?<h1>No Compeleted Task</h1> :<> {complete.map((e) => {
+    <>  
+      {//conditional reandring
+       complete.length==0?<h1>No Compeleted Task</h1> :<> {complete.map((e) => {
         return (
           <div>
             <div className="compContent"> {e.content}</div>
